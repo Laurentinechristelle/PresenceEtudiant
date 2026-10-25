@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PresenceEtudiant.Mobile"
+             x:Class="PresenceEtudiant.Mobile.AssiduitePage"
+             Title="Taux d'assiduité">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="16" RowSpacing="8">
+        <VerticalStackLayout>
+            <Label Text="{Binding TauxClasse}" FontSize="20" FontAttributes="Bold" />
+            <Label Text="{Binding Message}" />
+        </VerticalStackLayout>
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Lignes}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,Auto" HeightRequest="56" Padding="8,0">
+                        <VerticalStackLayout VerticalOptions="Center">
+                            <HorizontalStackLayout Spacing="4">
+                                <Label Text="{Binding Nom}" FontAttributes="Bold" />
+                                <Label Text="{Binding Prenom}" />
+                            </HorizontalStackLayout>
+                            <Label Text="Sous le seuil (75 %)" FontSize="12" TextColor="{StaticResource Erreur}" IsVisible="{Binding SousSeuil}" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="1" Text="{Binding Taux, StringFormat='{0} %'}" FontSize="18" FontAttributes="Bold" VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <VerticalStackLayout Grid.Row="2" Spacing="8">
+            <Button Text="Exporter" Command="{Binding ExporterCommand}" HeightRequest="48" />
+            <Button Text="Actualiser" Command="{Binding ActualiserCommand}" BackgroundColor="Transparent" TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

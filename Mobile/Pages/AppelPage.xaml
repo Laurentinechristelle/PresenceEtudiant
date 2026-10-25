@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PresenceEtudiant.Mobile"
+             x:Class="PresenceEtudiant.Mobile.AppelPage"
+             Title="Appel">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="16" RowSpacing="8">
+        <VerticalStackLayout>
+            <Label Text="{Binding Resume}" FontSize="18" FontAttributes="Bold" />
+            <Label Text="Touche une ligne pour passer Présent / Absent" FontSize="12" />
+            <Label Text="{Binding Message}" TextColor="{StaticResource Erreur}" />
+        </VerticalStackLayout>
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Lignes}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="48,*,Auto" HeightRequest="56" Padding="8,0">
+                        <Grid.Triggers>
+                            <DataTrigger TargetType="Grid" Binding="{Binding Present}" Value="False">
+                                <Setter Property="BackgroundColor" Value="#33B3261E" />
+                            </DataTrigger>
+                        </Grid.Triggers>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:AppelViewModel}}, Path=BasculerCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Grid.GestureRecognizers>
+                        <Label Text="{Binding Initiales}" FontAttributes="Bold" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="{Binding Nom}" />
+                            <Label Text="{Binding Matricule}" FontSize="12" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2" Text="{Binding Statut}" FontAttributes="Bold" VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <VerticalStackLayout Grid.Row="2" Spacing="8">
+            <Button Text="Tout présent" Command="{Binding ToutPresentCommand}" BackgroundColor="Transparent" TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
+            <Button Text="Valider l'appel" Command="{Binding ValiderCommand}" HeightRequest="48" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

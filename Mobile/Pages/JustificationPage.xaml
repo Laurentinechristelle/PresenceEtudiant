@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PresenceEtudiant.Mobile"
+             x:Class="PresenceEtudiant.Mobile.JustificationPage"
+             Title="Justification d'absence">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="16" RowSpacing="8">
+        <Label Text="Choisis un étudiant absent" FontAttributes="Bold" />
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Absences}" SelectionMode="Single" SelectedItem="{Binding Choisie}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Padding="8,6">
+                        <HorizontalStackLayout Spacing="4">
+                            <Label Text="{Binding Nom}" FontAttributes="Bold" />
+                            <Label Text="{Binding Prenom}" />
+                        </HorizontalStackLayout>
+                        <Label Text="{Binding Motif, TargetNullValue='Pas de motif'}" FontSize="12" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <VerticalStackLayout Grid.Row="2" Spacing="8">
+            <Entry Placeholder="Motif (obligatoire)" Text="{Binding Motif}" HeightRequest="56" />
+            <Entry Placeholder="Commentaire (facultatif)" Text="{Binding Commentaire}" HeightRequest="56" />
+            <Label Text="{Binding Message}" TextColor="{StaticResource Erreur}" />
+            <Button Text="Enregistrer" Command="{Binding EnregistrerCommand}" HeightRequest="48" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,30 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresenceEtudiant.Mobile", "Mobile\PresenceEtudiant.Mobile.csproj", "{6B1F3C52-4A7D-4E0B-9D31-2C8A5E7F1A01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresenceEtudiant.Api", "Api\PresenceEtudiant.Api.csproj", "{9D2E4B7A-1C3F-4A68-8E55-7B0C6D9F2B02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B1F3C52-4A7D-4E0B-9D31-2C8A5E7F1A01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B1F3C52-4A7D-4E0B-9D31-2C8A5E7F1A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B1F3C52-4A7D-4E0B-9D31-2C8A5E7F1A01}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6B1F3C52-4A7D-4E0B-9D31-2C8A5E7F1A01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B1F3C52-4A7D-4E0B-9D31-2C8A5E7F1A01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B1F3C52-4A7D-4E0B-9D31-2C8A5E7F1A01}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9D2E4B7A-1C3F-4A68-8E55-7B0C6D9F2B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D2E4B7A-1C3F-4A68-8E55-7B0C6D9F2B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D2E4B7A-1C3F-4A68-8E55-7B0C6D9F2B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D2E4B7A-1C3F-4A68-8E55-7B0C6D9F2B02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PresenceEtudiant.Mobile"
+             x:Class="PresenceEtudiant.Mobile.HistoriquePage"
+             Title="Historique par séance">
+    <Grid RowDefinitions="Auto,*" Padding="16" RowSpacing="8">
+        <Label Text="{Binding Message}" />
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Seances}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Padding="8,8" Spacing="2">
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:HistoriqueViewModel}}, Path=OuvrirCommand}"
+                                CommandParameter="{Binding .}" />
+                        </VerticalStackLayout.GestureRecognizers>
+                        <Label Text="{Binding Intitule}" FontAttributes="Bold" />
+                        <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy HH:mm}'}" FontSize="12" />
+                        <HorizontalStackLayout Spacing="8">
+                            <Label Text="{Binding Presents, StringFormat='Présents : {0}'}" />
+                            <Label Text="{Binding Absents, StringFormat='Absents : {0}'}" />
+                            <Label Text="Verrouillé" IsVisible="{Binding Verrouille}" FontAttributes="Bold" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

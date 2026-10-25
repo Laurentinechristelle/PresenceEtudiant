@@ -1,0 +1,55 @@
+@host = http://localhost:5080
+
+### 1. Connexion (compte de démonstration)
+# @name login
+POST {{host}}/auth/connexion
+Content-Type: application/json
+
+{ "email": "prof@test.cm", "motDePasse": "Motdepasse1!" }
+
+###
+@token = {{login.response.body.$.token}}
+
+### 2. Classes et étudiants
+GET {{host}}/api/classes
+Authorization: Bearer {{token}}
+
+### 3. Envoyer un appel validé (change l'Id GUID à chaque nouvel essai)
+POST {{host}}/api/sync/appels
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+[{
+  "id": "11111111-1111-1111-1111-111111111111",
+  "seanceId": "22222222-2222-2222-2222-222222222222",
+  "classeId": 1,
+  "date": "2026-10-23T08:00:00",
+  "intitule": "Cours MAUI",
+  "valide": true,
+  "presences": [ { "etudiantId": 1, "present": true }, { "etudiantId": 2, "present": false } ]
+}]
+
+### 4. Renvoyer le MÊME appel : doit répondre "deja_verrouille"
+
+### 5. Assiduité
+GET {{host}}/api/classes/1/assiduite
+Authorization: Bearer {{token}}
+
+### 6. Historique
+GET {{host}}/api/classes/1/seances
+Authorization: Bearer {{token}}
+
+### 7. Absents d'un appel (remplace l'Id par celui de ton appel, vu dans l'historique)
+GET {{host}}/api/appels/11111111-1111-1111-1111-111111111111/absences
+Authorization: Bearer {{token}}
+
+### 8. Justifier l'absence de l'étudiant 2 (marche même si l'appel est verrouillé)
+PUT {{host}}/api/appels/11111111-1111-1111-1111-111111111111/justifications/2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "motif": "Maladie", "commentaire": "Certificat reçu" }
+
+### 9. Export CSV
+GET {{host}}/api/classes/1/export
+Authorization: Bearer {{token}}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PresenceEtudiant.Mobile"
+             x:Class="PresenceEtudiant.Mobile.ClassePage"
+             Title="Liste de classe">
+    <Grid RowDefinitions="Auto,Auto,*,Auto" Padding="16" RowSpacing="8">
+        <Label Text="{Binding Titre}" FontSize="24" FontAttributes="Bold" />
+        <VerticalStackLayout Grid.Row="1">
+            <Label Text="{Binding Compteur}" />
+            <Label Text="{Binding Etat}" TextColor="{StaticResource Erreur}" />
+        </VerticalStackLayout>
+        <CollectionView Grid.Row="2" ItemsSource="{Binding Etudiants}">
+            <CollectionView.EmptyView>
+                <Label Text="Aucun étudiant dans cette classe" />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout HeightRequest="56" Padding="8,4" VerticalOptions="Center">
+                        <HorizontalStackLayout Spacing="4">
+                            <Label Text="{Binding Nom}" FontAttributes="Bold" />
+                            <Label Text="{Binding Prenom}" />
+                        </HorizontalStackLayout>
+                        <Label Text="{Binding Matricule}" FontSize="12" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <VerticalStackLayout Grid.Row="3" Spacing="8">
+            <Button Text="Faire l'appel" Command="{Binding FaireAppelCommand}" HeightRequest="48" />
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                <Button Text="Historique" Command="{Binding HistoriqueCommand}" FontSize="12" />
+                <Button Grid.Column="1" Text="Assiduité" Command="{Binding AssiduiteCommand}" FontSize="12" />
+                <Button Grid.Column="2" Text="Déconnexion" Command="{Binding DeconnexionCommand}" FontSize="12" />
+            </Grid>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

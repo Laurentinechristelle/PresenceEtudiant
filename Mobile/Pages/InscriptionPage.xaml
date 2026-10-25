@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PresenceEtudiant.Mobile"
+             x:Class="PresenceEtudiant.Mobile.InscriptionPage"
+             Title="Créer un compte">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <Entry Placeholder="Nom" Text="{Binding Nom}" HeightRequest="56" />
+            <Entry Placeholder="Prénom" Text="{Binding Prenom}" HeightRequest="56" />
+            <Entry Placeholder="Adresse e-mail" Text="{Binding Email}" Keyboard="Email" HeightRequest="56" />
+            <Entry Placeholder="Mot de passe (8 caractères minimum)" Text="{Binding MotDePasse}" IsPassword="True" HeightRequest="56" />
+            <Entry Placeholder="Confirmer le mot de passe" Text="{Binding Confirmation}" IsPassword="True" HeightRequest="56" />
+            <Label Text="{Binding Message}" TextColor="{StaticResource Erreur}" />
+            <Button Text="Créer mon compte" Command="{Binding CreerCommand}" HeightRequest="48" />
+            <Button Text="J'ai déjà un compte" Command="{Binding DejaUnCompteCommand}" BackgroundColor="Transparent" TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

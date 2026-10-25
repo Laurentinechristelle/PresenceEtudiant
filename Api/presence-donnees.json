@@ -1,0 +1,562 @@
+{
+  "Enseignants": [
+    {
+      "Id": 1,
+      "Email": "prof@test.cm",
+      "Nom": "Tchinda",
+      "Prenom": "Olivier",
+      "Sel": "HascNyTkVhkdii2DTSyrqA==",
+      "Hash": "Z1AQRnv6NYy7SBSbzQeVAP/\u002BE9lyGldeiBaR9J76RQY="
+    },
+    {
+      "Id": 2,
+      "Email": "tagnemaruis@gmail.com",
+      "Nom": "Mr tagne",
+      "Prenom": "maruis",
+      "Sel": "kEDbxWsR\u002BNUW1lp5WMmJcw==",
+      "Hash": "2riFQHRrx0yom5bXgdWSZOFjb9WjfQ9ptGDOwHtNny8="
+    }
+  ],
+  "Classes": [
+    {
+      "Id": 1,
+      "Nom": "GIT 5 - D\u00E9veloppement mobile (ENSPD Douala)",
+      "EnseignantId": 1
+    }
+  ],
+  "Etudiants": [
+    {
+      "Id": 1,
+      "Matricule": "22G4001",
+      "Nom": "Mbarga",
+      "Prenom": "Jean-Pierre",
+      "ClasseId": 1
+    },
+    {
+      "Id": 2,
+      "Matricule": "22G4002",
+      "Nom": "Nguemo",
+      "Prenom": "Carine",
+      "ClasseId": 1
+    },
+    {
+      "Id": 3,
+      "Matricule": "22G4003",
+      "Nom": "Tchoumi",
+      "Prenom": "Brice",
+      "ClasseId": 1
+    },
+    {
+      "Id": 4,
+      "Matricule": "22G4004",
+      "Nom": "Fotso",
+      "Prenom": "Mireille",
+      "ClasseId": 1
+    },
+    {
+      "Id": 5,
+      "Matricule": "22G4005",
+      "Nom": "Kamga",
+      "Prenom": "Arnaud",
+      "ClasseId": 1
+    },
+    {
+      "Id": 6,
+      "Matricule": "22G4006",
+      "Nom": "Ngono",
+      "Prenom": "Estelle",
+      "ClasseId": 1
+    },
+    {
+      "Id": 7,
+      "Matricule": "22G4007",
+      "Nom": "Essomba",
+      "Prenom": "Patrick",
+      "ClasseId": 1
+    },
+    {
+      "Id": 8,
+      "Matricule": "22G4008",
+      "Nom": "Njoya",
+      "Prenom": "Aminatou",
+      "ClasseId": 1
+    },
+    {
+      "Id": 9,
+      "Matricule": "22G4009",
+      "Nom": "Mvondo",
+      "Prenom": "Serge",
+      "ClasseId": 1
+    },
+    {
+      "Id": 10,
+      "Matricule": "22G4010",
+      "Nom": "Tagne",
+      "Prenom": "Larissa",
+      "ClasseId": 1
+    },
+    {
+      "Id": 11,
+      "Matricule": "22G4011",
+      "Nom": "Atangana",
+      "Prenom": "Pascal",
+      "ClasseId": 1
+    },
+    {
+      "Id": 12,
+      "Matricule": "22G4012",
+      "Nom": "Nkeng",
+      "Prenom": "Blessing",
+      "ClasseId": 1
+    },
+    {
+      "Id": 13,
+      "Matricule": "22G4013",
+      "Nom": "Abessolo",
+      "Prenom": "Yannick",
+      "ClasseId": 1
+    },
+    {
+      "Id": 14,
+      "Matricule": "22G4014",
+      "Nom": "Mohamadou",
+      "Prenom": "Hadidja",
+      "ClasseId": 1
+    },
+    {
+      "Id": 15,
+      "Matricule": "22G4015",
+      "Nom": "Etoundi",
+      "Prenom": "Prisca",
+      "ClasseId": 1
+    }
+  ],
+  "Seances": [
+    {
+      "Id": "37a9a4a9-a752-4c41-a056-b4819a5b7798",
+      "ClasseId": 1,
+      "Date": "2026-10-04T08:00:00+02:00",
+      "Intitule": "Cours 1 - Introduction \u00E0 .NET MAUI"
+    },
+    {
+      "Id": "c2043b55-689c-4597-b21b-e9da3497643d",
+      "ClasseId": 1,
+      "Date": "2026-10-11T08:00:00+02:00",
+      "Intitule": "TP 1 - Calculatrice MAUI"
+    },
+    {
+      "Id": "d0d3639f-57a7-4e17-8fa2-9d327b49d0c8",
+      "ClasseId": 1,
+      "Date": "2026-10-18T08:00:00+02:00",
+      "Intitule": "Cours 2 - MVVM et navigation"
+    },
+    {
+      "Id": "9acf2931-5914-4680-81dc-a47820a867fc",
+      "ClasseId": 1,
+      "Date": "2026-10-22T08:00:00+02:00",
+      "Intitule": "Atelier - Maquettes Figma"
+    }
+  ],
+  "Appels": [
+    {
+      "Id": "c9419d42-7e32-4d6f-8f4e-bbdb9feb4bc7",
+      "SeanceId": "37a9a4a9-a752-4c41-a056-b4819a5b7798",
+      "EnseignantId": 1,
+      "Verrouille": true,
+      "ValideLe": "2026-10-04T06:20:00Z",
+      "Version": 1,
+      "Presences": [
+        {
+          "EtudiantId": 1,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 2,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 3,
+          "Present": false,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 4,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 5,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 6,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 7,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 8,
+          "Present": false,
+          "Motif": "Paludisme (certificat m\u00E9dical)",
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 9,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 10,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 11,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 12,
+          "Present": false,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 13,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 14,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 15,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        }
+      ]
+    },
+    {
+      "Id": "710ad126-98b2-4f9a-ab1a-ca0c12547e06",
+      "SeanceId": "c2043b55-689c-4597-b21b-e9da3497643d",
+      "EnseignantId": 1,
+      "Verrouille": true,
+      "ValideLe": "2026-10-11T06:20:00Z",
+      "Version": 1,
+      "Presences": [
+        {
+          "EtudiantId": 1,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 2,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 3,
+          "Present": false,
+          "Motif": "Probl\u00E8me de transport (Douala - Yassa)",
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 4,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 5,
+          "Present": false,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 6,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 7,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 8,
+          "Present": false,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 9,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 10,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 11,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 12,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 13,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 14,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 15,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        }
+      ]
+    },
+    {
+      "Id": "21a77969-c31f-4dff-ad4e-ab233add77d6",
+      "SeanceId": "d0d3639f-57a7-4e17-8fa2-9d327b49d0c8",
+      "EnseignantId": 1,
+      "Verrouille": true,
+      "ValideLe": "2026-10-18T06:20:00Z",
+      "Version": 1,
+      "Presences": [
+        {
+          "EtudiantId": 1,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 2,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 3,
+          "Present": false,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 4,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 5,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 6,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 7,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 8,
+          "Present": false,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 9,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 10,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 11,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 12,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 13,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 14,
+          "Present": false,
+          "Motif": "Entretien de stage \u00E0 Bonab\u00E9ri",
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 15,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        }
+      ]
+    },
+    {
+      "Id": "c5c2036e-4f26-443a-be8b-8173dd5b5945",
+      "SeanceId": "9acf2931-5914-4680-81dc-a47820a867fc",
+      "EnseignantId": 1,
+      "Verrouille": true,
+      "ValideLe": "2026-10-22T06:20:00Z",
+      "Version": 1,
+      "Presences": [
+        {
+          "EtudiantId": 1,
+          "Present": false,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 2,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 3,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 4,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 5,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 6,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 7,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 8,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 9,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 10,
+          "Present": false,
+          "Motif": "D\u00E9c\u00E8s dans la famille (Bafoussam)",
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 11,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 12,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 13,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 14,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        },
+        {
+          "EtudiantId": 15,
+          "Present": true,
+          "Motif": null,
+          "Commentaire": null
+        }
+      ]
+    }
+  ]
+}

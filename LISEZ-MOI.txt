@@ -1,0 +1,37 @@
+PRESENCE ETUDIANT : version SANS PAQUET NuGet (aucun téléchargement de paquet à faire)
+=====================================================================================
+
+POUR VOIR L'APPLICATION (3 gestes)
+  1. Dézippe ce dossier dans un chemin court, par exemple  C:\PresenceEtudiant
+  2. Double-clique sur  PresenceEtudiant.sln  (il s'ouvre dans Visual Studio 2026)
+  3. Dans la barre d'outils, choisis  "Windows Machine"  puis clique sur le bouton vert (ou F5)
+
+  Le serveur démarre TOUT SEUL avec l'application. L'écran de connexion est déjà rempli
+  avec le compte de démonstration. Il suffit d'appuyer sur "Se connecter".
+
+COMPTE DE DEMONSTRATION
+  prof@test.cm   /   Motdepasse1!
+  Classe : GIT 5 - Développement mobile (ENSPD Douala), 15 étudiants, 4 séances déjà enregistrées.
+
+CONSOLE DE TEST DU SERVEUR (dans le navigateur)
+  Quand l'application tourne :  http://localhost:5080
+
+CE QUI A CHANGE DANS CETTE VERSION
+  - Plus aucun paquet NuGet ajouté (ni EF Core, ni SQLite, ni JwtBearer, ni CommunityToolkit).
+    Le serveur garde ses données dans un fichier JSON (Api\presence-donnees.json).
+    L'application garde ses appels hors connexion dans des fichiers JSON du téléphone.
+  - Version Windows uniquement (Windows Machine).
+
+SI L'ERREUR "impossible de charger l'index de service ... nuget.org" S'AFFICHE ENCORE
+  Elle vient du réseau de ton PC (Visual Studio n'arrive pas à joindre nuget.org pour les paquets
+  de base de .NET MAUI). Ce n'est pas une erreur du code. Dans ce cas :
+    - connecte-toi à internet (partage de connexion du téléphone si besoin) et relance F5, ou
+    - Outils > Gestionnaire de package NuGet > Paramètres > Sources : vérifie que nuget.org est coché.
+
+SI "Windows Machine" N'APPARAIT PAS OU SI LE LANCEMENT ECHOUE
+  Ouvre Mobile\PresenceEtudiant.Mobile.csproj et supprime les 3 lignes
+  WindowsPackageType / WindowsAppSDKSelfContained / SelfContained,
+  active le "Mode développeur" de Windows, puis relance.
+
+LANCER LE SERVEUR SEUL
+  Double-clique sur  Lancer-Serveur.bat  (utile pour tester le hors connexion).

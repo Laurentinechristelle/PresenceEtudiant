@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Présence Étudiant : console de l'API</title>
+<style>
+  body{font-family:"Segoe UI",Arial,sans-serif;margin:16px auto;max-width:920px;padding:0 12px;color:#1B1F23}
+  h1{color:#1F4E79;font-size:22px}
+  button{margin:4px 6px 4px 0;padding:9px 14px;border:0;border-radius:8px;background:#1F4E79;color:#fff;cursor:pointer;font-size:14px}
+  button.s{background:#fff;color:#1F4E79;border:1px solid #1F4E79}
+  input{padding:8px;margin-right:6px;border:1px solid #9aa3ad;border-radius:6px}
+  pre{background:#f3f4f6;padding:12px;border-radius:8px;overflow:auto;max-height:440px;font-size:13px}
+  .ok{color:#1B7F4B;font-weight:600}
+  .bloc{margin:14px 0}
+</style>
+</head>
+<body>
+<h1>Présence Étudiant : console de l'API</h1>
+<p class="ok">Le serveur est en marche. Connecte-toi, puis clique sur les boutons pour voir ce que répond l'API.</p>
+
+<div class="bloc">
+  <input id="email" value="prof@test.cm" size="22">
+  <input id="mdp" type="password" value="Motdepasse1!">
+  <button onclick="connexion()">Se connecter</button><span id="etat"></span>
+</div>
+
+<div class="bloc">
+  <button onclick="listeClasses()">Classe et étudiants</button>
+  <button onclick="historique()">Historique des séances</button>
+  <button onclick="assiduite()">Taux d'assiduité</button>
+  <button onclick="exporter()" class="s">Télécharger l'export CSV</button>
+</div>
+
+<div class="bloc">
+  <button onclick="envoyer(true)">Envoyer un appel VALIDÉ (2 absents)</button>
+  <button onclick="envoyer(false)" class="s">Envoyer un appel NON validé</button>
+  <button onclick="renvoyer()" class="s">Renvoyer le même appel modifié (test du verrou)</button>
+</div>
+
+<pre id="out">Le résultat s'affiche ici.</pre>
+
+<script>
+let token = null, classe = null, dernier = null;
+const $ = id => document.getElementById(id);
+const sortie = x => { $('out').textContent = typeof x === 'string' ? x : JSON.stringify(x, null, 2); };
+
+async function api(methode, url, corps) {
+  const h = { 'Content-Type': 'application/json' };
+  if (token) h.Authorization = 'Bearer ' + token;
+  const r = await fetch(url, { method: methode, headers: h, body: corps ? JSON.stringify(corps) : undefined });
+  const t = await r.text();
+  let rep; try { rep = JSON.parse(t); } catch { rep = t; }
+  return { statut: r.status, reponse: rep };
+}
+async function connexion() {
+  const r = await api('POST', '/auth/connexion', { email: $('email').value, motDePasse: $('mdp').value });
+  if (r.statut === 200) { token = r.reponse.token; $('etat').textContent = ' connecté'; r.reponse = { token: token.slice(0, 30) + '...' }; }
+  sortie(r);
+}
+async function chargerClasse() {
+  const r = await api('GET', '/api/classes');
+  if (r.statut === 200 && r.reponse.length) classe = r.reponse[0];
+  return r;
+}
+async function listeClasses() { sortie(await chargerClasse()); }
+async function historique() { if (!classe) await chargerClasse(); sortie(classe ? await api('GET', '/api/classes/' + classe.id + '/seances') : "Connecte-toi d'abord."); }
+async function assiduite() { if (!classe) await chargerClasse(); sortie(classe ? await api('GET', '/api/classes/' + classe.id + '/assiduite') : "Connecte-toi d'abord."); }
+async function exporter() {
+  if (!classe) await chargerClasse();
+  if (!classe) return sortie("Connecte-toi d'abord.");
+  const r = await fetch('/api/classes/' + classe.id + '/export', { headers: { Authorization: 'Bearer ' + token } });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(await r.blob()); a.download = 'assiduite.csv'; a.click();
+}
+async function envoyer(valide) {
+  if (!classe) await chargerClasse();
+  if (!classe) return sortie("Connecte-toi d'abord.");
+  dernier = {
+    id: crypto.randomUUID(), seanceId: crypto.randomUUID(), classeId: classe.id,
+    date: new Date().toISOString().slice(0, 19),
+    intitule: 'Séance test ' + new Date().toLocaleTimeString('fr-FR'),
+    valide: valide,
+    presences: classe.etudiants.map((e, i) => ({ etudiantId: e.id, present: i > 1 }))
+  };
+  sortie(await api('POST', '/api/sync/appels', [dernier]));
+}
+async function renvoyer() {
+  if (!dernier) return sortie("Envoie d'abord un appel.");
+  dernier.presences[0].present = true;
+  sortie(await api('POST', '/api/sync/appels', [dernier]));
+}
+</script>
+</body>
+</html>

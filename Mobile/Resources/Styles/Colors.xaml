@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <!-- Ta charte graphique : remplace ces codes par ceux de ta page "Charte" dans Figma -->
+    <Color x:Key="Primary">#1F4E79</Color>
+    <Color x:Key="PrimaryDark">#8FB4D9</Color>
+    <Color x:Key="Erreur">#B3261E</Color>
+    <Color x:Key="Succes">#1B7F4B</Color>
+    <Color x:Key="Fond">#FFFFFF</Color>
+    <Color x:Key="FondSombre">#121417</Color>
+    <Color x:Key="Texte">#1B1F23</Color>
+    <Color x:Key="TexteSombre">#F2F4F7</Color>
+    <Color x:Key="Gris">#6B7280</Color>
+</ResourceDictionary>
